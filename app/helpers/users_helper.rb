@@ -8,6 +8,7 @@ module UsersHelper
     response['email']  
     rescue Exception => ex #Rescue exception if any connectivity issue occurrs
       logger.error("Message for the log file #{ex.message}")
+      response = nil
     end  
   end     
 end

@@ -2,9 +2,14 @@ require 'test_helper'
 
 class UsersHelperTest < ActionView::TestCase
   include UsersHelper
-
-  test "MyHelperShouldReturnSomeHTML" do
-    html = show_user_email('test')
-    #assert_select node(html), "span.a_class", "test span's innerHTML here."
+  test "should return the blank email address for the nil username passed" do
+    email = show_user_email('')
+    assert_nil email, nil   
+  end
+  
+  test "should return the eamil address for the username passed" do
+    email = show_user_email('surekhakolekar')
+    assert_equal email, "kolekar.surekha@gmail.com"
+    
   end
 end
